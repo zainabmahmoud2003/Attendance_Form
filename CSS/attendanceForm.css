@@ -1,0 +1,204 @@
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --main-color: rgb(19 80 222);
+    --success-color: #619885;
+    --error-color: #bd6766;
+    --bg-color: #edf5f8;
+    --main-transition: 0.3s;
+}
+
+body {
+    font-family: "Cairo", "Outfit", sans-serif;
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+body, html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    margin-bottom: 70px;
+}
+
+.form {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+form .text {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--main-color);
+    color: white;
+}
+
+form .text h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 6px;
+}
+
+form .text p {
+    font-size: 14px;
+    color: #666;
+}
+
+.field {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.field label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.field input,
+.field .year {
+    width: 100%;
+    height: 46px;
+    padding: 0 15px 0 42px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    transition: var(--main-transition);
+    background: #fafafa;
+}
+
+.field .year {
+    color: #757575;
+}
+
+.field select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+
+.field input:focus,
+.field .year:focus {
+    outline: none;
+    border-color: var(--main-color);
+    box-shadow: 0 0 0 3px rgba(62, 133, 241, 0.15);
+    background: white;
+}
+
+.field i {
+    position: absolute;
+    left: 14px;
+    top: 48px;
+    color: #aaa;
+    font-size: 15px;
+}
+
+.field .note {
+    display: block;
+    font-size: 12px;
+    color: #e67e22;
+    margin-top: 5px;
+    padding-right: 4px;
+}
+
+.submitBtn {
+    width: 100%;
+    height: 48px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: var(--main-transition);
+    margin-top: 10px;
+}
+
+.submitBtn:hover {
+    background-color: rgb(19 80 222 / 88%);
+}
+
+.submitBtn:disabled {
+    background-color: #a0c0f0;
+    cursor: not-allowed;
+}
+
+.message {
+    margin-top: 18px;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+    display: none;
+}
+
+.message.success {
+    display: block;
+    background-color: #e6f7f0;
+    color: var(--success-color);
+}
+
+.message.error {
+    display: block;
+    background-color: #fdf0f0;
+    color: var(--error-color);
+}
+
+footer p {
+    direction: ltr;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    span {
+        display: block;
+        margin-left: 5px;
+        color: var(--main-color);
+    }
+}
+
+
+@media (max-width: 480px) {
+    .form {
+        padding: 25px 18px;
+    }
+
+    form .text h2 {
+        font-size: 22px;
+    }
+}

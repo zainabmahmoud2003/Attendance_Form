@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل حضور السيشن</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="CSS/attendanceForm.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Outfit:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="CSS/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <form class="attendanceForm" id="attendanceForm">
+                <div class="text">
+                    <h2>IEEE SVU SB</h2>
+                    <h4>تسجيل الحضــــــور</h4>
+                </div>
+
+                <div class="field">
+                    <label for="fullName">الاسم بالكامل</label>
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="fullName" name="fullName input" placeholder="الاسم رباعي"
+                        required>
+                    <small class="note">يُرجى كتابة الاسم كما تريده أن يظهر في الشهادة</small>
+                </div>
+
+                <div class="field">
+                    <label for="contact">رقم الموبايل أو الإيميل</label>
+                    <i class="fa-solid fa-phone"></i>
+                    <input type="text" id="contact" name="contact input" placeholder=" الرقم أو الإيميل" required>
+                    <small class="note">استخدم نفس الرقم أو الإيميل كل مرة</small>
+                </div>
+
+                <div class="field">
+                    <label for="department">القسم</label>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <input type="text" id="department" name="department input" placeholder=""
+                        required>
+                </div>
+
+                <div class="field">
+                    <label for="year">السنة الدراسية</label>
+                    <i class="fa-solid fa-chevron-down"></i>
+                    <select class="year input" name="year" id="year" required>
+                        <option value="" disabled selected>اختر الفرقة الدراسية</option>
+                        <option value="year 1">الفرقة الأولى</option>
+                        <option value="year 2">الفرقة الثانية</option>
+                        <option value="year 3">الفرقة الثالثة</option>
+                        <option value="year 4">الفرقة الرابعة</option>
+                        <option value="year 5">الفرقة الخامسة</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="sessionCode">كود السيشن</label>
+                    <i class="fa-solid fa-key"></i>
+                    <input type="text" id="sessionCode" name="sessionCode" class="input" placeholder="اكتب كود السيشن"
+                        required>
+                </div>
+
+                <button type="submit" class="submitBtn" id="submitBtn">تسجيل الحضور</button>
+
+                <div id="message" class="message"></div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; IEEE SVU SB | Season 2026-2027</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
