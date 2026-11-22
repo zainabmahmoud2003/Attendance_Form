@@ -22,13 +22,13 @@ form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     submitBtn.disabled = true;
-    submitBtn.textContent = "جاري التحميل...";
+    submitBtn.textContent = "Loading...";
 
     messageDiv.textContent = "";
     messageDiv.classList = "message";
 
     if (!navigator.geolocation) {
-        showMessage("يُرجى فتح تحديد الموقع", "error");
+        showMessage("Please enable location services", "error");
         resetButton();
         return;
     }
@@ -50,19 +50,24 @@ form.addEventListener("submit", function (e) {
                     body: JSON.stringify(data)
                 }).then(function (response) {
                     if (response.ok) {
-                        showMessage("تم تسجيل حضورك بنجاح", "success");
+                        showMessage("Your attendance has been recorded successfully", "success");
                         form.reset();
                     } else {
-                        showMessage("حدث خطأ، حاول مرة أخرى", "error")
+                        showMessage("An error occurred, please try again", "error");
                     }
                 })
                 .catch(function () {
-                    showMessage("لا يوجد اتصال، حاول مرة أخرى", "error")
+                    showMessage("No internet connection, please try again", "error");
                 })
                 .finally(function () {
                     resetButton();
                 });
-        })
+        },
+        function () {
+            showMessage("Location access denied. Please enable location to submit.", "error");
+            resetButton();
+        }
+    );
 });
 
 function showMessage(text, type) {
@@ -72,5 +77,5 @@ function showMessage(text, type) {
 
 function resetButton() {
     submitBtn.disabled = false;
-    submitBtn.textContent = "تسجيل حضور";
+    submitBtn.textContent = "Submit Attendance";
 }
