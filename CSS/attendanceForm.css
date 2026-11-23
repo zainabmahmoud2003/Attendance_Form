@@ -168,7 +168,7 @@ body {
 }
 
 .submitBtn:disabled {
-    background-color: #a0c0f0;
+    background-color: var(--sec-color);
     cursor: not-allowed;
     transform: none;
 }

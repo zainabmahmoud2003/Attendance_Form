@@ -18,6 +18,30 @@ for (const input of inputs) {
     };
 }
 
+function validateFullName(name) {
+    name = name.trim();
+    if (!name) return "Full Name is required";
+
+    const nameWords = name.split(/\s+/).filter(word => word.length > 0);
+    if (nameWords.length <= 2) return "Please enter your full name";
+
+    return null;
+}
+
+function validateContact(contact) {
+    contact = contact.trim();
+    if (!contact) return "Phone or Email is required";
+
+    const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneReg = /^(?:\+?20|0)?1[0125][0-9]{8}$/;
+
+    if (emailReg.test(contact) || phoneReg.test(contact.replace(/\s|-/g, ""))) 
+    {
+        return null;
+    }
+    return "Please enter a valid phone number or email";
+}
+
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -26,6 +50,21 @@ form.addEventListener("submit", function (e) {
 
     messageDiv.textContent = "";
     messageDiv.classList = "message";
+
+    const name = document.getElementById("fullName").value;
+    const contact = document.getElementById("contact").value;
+
+    const errors = [
+        validateFullName(name),
+        validateContact(contact)
+    ].filter(Boolean);
+
+    if (errors.length > 0)
+    {
+        showMessage(errors[0], "error");
+        resetButton();
+        return;
+    }
 
     if (!navigator.geolocation) {
         showMessage("Please enable location services", "error");
